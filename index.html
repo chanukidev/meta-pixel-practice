@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meta Pixel Practice Lab</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fb;
+            margin: 0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px #0001;
+        }
+
+        h1 {
+            color: #1877f2;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #1877f2;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #105ec0;
+        }
+
+        #message {
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+
+    <!-- META PIXEL CODE WILL GO HERE -->
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Meta Pixel Practice Lab</h1>
+
+        <p>
+            Welcome! This is a demonstration website
+            created to practise Meta Pixel tracking.
+        </p>
+
+        <h2>Digital Marketing Course</h2>
+
+        <p>
+            Learn digital marketing, social media
+            advertising and marketing analytics.
+        </p>
+
+        <button onclick="viewCourse()">
+            View Course Details
+        </button>
+
+        <button onclick="submitEnquiry()">
+            Submit an Enquiry
+        </button>
+
+        <button onclick="completeRegistration()">
+            Complete Registration
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script>
+
+        function viewCourse() {
+
+            if (typeof fbq === "function") {
+                fbq('track', 'ViewContent');
+            }
+
+            document.getElementById("message").innerText =
+                "Course details viewed!";
+        }
+
+        function submitEnquiry() {
+
+            if (typeof fbq === "function") {
+                fbq('track', 'Lead');
+            }
+
+            document.getElementById("message").innerText =
+                "Enquiry submitted successfully!";
+        }
+
+        function completeRegistration() {
+
+            if (typeof fbq === "function") {
+                fbq('track', 'CompleteRegistration');
+            }
+
+            document.getElementById("message").innerText =
+                "Registration completed!";
+        }
+
+    </script>
+
+</body>
+</html>
